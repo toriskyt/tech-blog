@@ -19,11 +19,15 @@ Posts.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    content: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     user_id: {
         type: DataTypes.STRING,
         allowNull: false,
         references: {
-            model: "user",
+            model: "users",
             key: "id"
         }
     }
@@ -31,7 +35,7 @@ Posts.init({
     sequelize, 
     timestamps: false,
     freezeTableName: true,
-    modelName: "post",
+    modelName: "posts",
 })
 
 module.exports = Posts

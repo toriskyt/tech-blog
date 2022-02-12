@@ -1,9 +1,9 @@
-const {Model, DataTypes} = require("sequelize")
+const { Model, DataTypes } = require("sequelize")
 const sequelize = require("../config/connection")
 const bcrypt = require("bcrypt")
 
 class Comments extends Model {
-    checkPassword(plainText){
+    checkPassword(plainText) {
         return bcrypt.compareSync(plainText, this.password)
     }
 }
@@ -15,7 +15,7 @@ Comments.init({
         primaryKey: true,
         autoIncrement: true
     },
-    comment_text: {
+    content: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -26,15 +26,23 @@ Comments.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
+            model: "users",
+            key: "id"
+        }
+    },
+    post_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
             model: "posts",
             key: "id"
         }
-    }
-},{
-    sequelize, 
+    },
+}, {
+    sequelize,
     timestamps: false,
     freezeTableName: true,
-    modelName: "user",
+    modelName: "comments",
 })
 
 module.exports = Comment

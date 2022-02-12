@@ -30,7 +30,7 @@ User.init({
     sequelize, 
     timestamps: false,
     freezeTableName: true,
-    modelName: "user",
+    modelName: "users",
     hooks: {
         async beforeCreate(newUser){
             newUser.password = await bcrypt.hash(newUser.password, 10)
