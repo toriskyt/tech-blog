@@ -1,4 +1,4 @@
-const { Users } = require('../models/seeds')
+const { Users } = require('../models')
 
 const userData = [{
     username: 'Carly',

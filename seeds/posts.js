@@ -1,4 +1,4 @@
-const { Posts } = require('../models/seeds')
+const { Posts } = require('../models')
 
 const postData = [{
     title: "Title 1",

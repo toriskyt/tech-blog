@@ -45,4 +45,4 @@ Comments.init({
     modelName: "comments",
 })
 
-module.exports = Comment
+module.exports = Comments
