@@ -1,19 +1,19 @@
 const { Users } = require('../models/seeds')
 
 const userData = [{
-    username: '',
-    password: ''
+    username: 'Carly',
+    password: 'doodles'
 },
 
 {
-    username: '',
-    password: ''  
+    username: 'Ben',
+    password: 'pooka'  
 
 },
 
 {
-    username: '',
-    password: ''
+    username: 'Maddie',
+    password: 'mads'
 
 },
 ];
