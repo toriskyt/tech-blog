@@ -1,7 +1,4 @@
 const router = require("express").Router();
-const req = require("express/lib/request");
-const res = require("express/lib/response");
-const { contentType } = require("express/lib/response");
 const { Users, Posts, Comments } = require("../models")
 
 router.get("/", (req, res) => {
@@ -14,7 +11,7 @@ router.get("/", (req, res) => {
         ],
         include: [{
             model: Comments,
-            attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+            attributes: ["id", "content", "post_id", "user_id", "created_at"],
             include: {
                 model: Users,
                 attributes: ["username"]
@@ -28,7 +25,7 @@ router.get("/", (req, res) => {
     })
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render("hompage", { posts, loggedIn: req.session.loggedIn });
+            res.render("homepage", { posts, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err);
@@ -55,13 +52,13 @@ router.get("/post/:id", (req, res) => {
         },
         attributes: [
             "id",
-            "content",
             "title",
+            "content",
             "created_at"
         ],
         include: [{
             model: Comments,
-            attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+            attributes: ["id", "content", "post_id", "user_id", "created_at"],
             include: {
                 model: Users,
                 attributes: ["username"]
@@ -94,13 +91,13 @@ router.get("/posts-comments", (req, res) => {
         },
         attributes: [
             "id",
-            "content",
             "title",
+            "content",
             "created_at"
         ],
         include: [{
             model: Comments,
-            attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+            attributes: ["id", "content", "post_id", "user_id", "created_at"],
             include: {
                 model: Users,
                 attributes: ["username"]

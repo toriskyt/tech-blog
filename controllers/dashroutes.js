@@ -1,11 +1,7 @@
 const router = require("express").Router();
-const req = require("express/lib/request");
-const res = require("express/lib/response");
-const { contentType } = require("express/lib/response");
 const { Users, Posts, Comments } = require("../models")
 
-//TODO - create utils folder
-//const withAuth = require("./utils/auth");
+const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, (req, res) => {
     Posts.findAll({
@@ -20,7 +16,7 @@ router.get("/", withAuth, (req, res) => {
         ],
         include: [{
             model: Comments,
-            attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+            attributes: ["id", "content", "post_id", "user_id", "created_at"],
             include: {
                 model: Users,
                 attributes: ["username"]
@@ -58,7 +54,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
         },
         {
             model: Comments,
-            attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+            attributes: ["id", "content", "post_id", "user_id", "created_at"],
             include: {
                 model: Users,
                 attributes: ["username"]
