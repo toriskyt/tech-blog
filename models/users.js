@@ -29,6 +29,7 @@ User.init({
 },{
     sequelize, 
     timestamps: false,
+    underscored: true,
     freezeTableName: true,
     modelName: "users",
     hooks: {
