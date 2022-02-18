@@ -38,7 +38,7 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 router.get("/edit/:id", withAuth, (req, res) => {
-    Post.findOne({
+    Posts.findOne({
         where: {
             id: req.params.id
         },
@@ -69,6 +69,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
         }
 
         const post = dbPostData.get({ plain: true });
+        res.render("edit-post", {post, loggedIn: true})
     })
     .catch(err => {
         console.log(err);
