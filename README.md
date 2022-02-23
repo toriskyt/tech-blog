@@ -12,7 +12,7 @@ Username: Carly password: doodles
 
 Username: Ben password: pooka
 
-Username: Madison password: mads
+Username: Maddie password: mads
 
 The user is able to enter their username and password to log in.
 
