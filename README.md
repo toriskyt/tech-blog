@@ -4,7 +4,7 @@ Tracy Torisky
 
 ttorisky@gmail.com
 
-![screenshot of tech blog](tech-blog/assets/tech-blogScreenshot.JPG)
+![screenshot of tech blog](/assets/tech-blogScreenshot.JPG)
 
 Three tech bloggers have been set up to log in and post to the Technical Blog Site:
 
